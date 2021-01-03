@@ -14,8 +14,32 @@ $(document).ready(function () {
         //loop over time blocks
         $(".time-block").each(function () {
             var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+
+            //Checks time and marks past/future/present.
+
+            if (blockTime < timeNow) {
+                $(this).removeClass(".present");
+                $(this).removeClass(".future");
+                $(this).addClass(".past");
+            }
+
+            else if (blockTime == timeNow) {
+                $(this).removeClass(".future");
+                $(this).removeClass(".past");
+                $(this).addClass(".present");
+            }
+
+            else {
+                $(this).removeClass(".past");
+                $(this).removeClass(".present");
+                $(this).addClass(".future");
+            }
+
         })
     }
+
+    //Runs function
+    timeTracker()
 
 })
 
