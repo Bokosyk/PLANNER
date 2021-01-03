@@ -18,21 +18,21 @@ $(document).ready(function () {
             //Checks time and marks past/future/present.
 
             if (blockTime < timeNow) {
-                $(this).removeClass(".present");
-                $(this).removeClass(".future");
-                $(this).addClass(".past");
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+                $(this).addClass("past");
             }
 
             else if (blockTime == timeNow) {
-                $(this).removeClass(".future");
-                $(this).removeClass(".past");
-                $(this).addClass(".present");
+                $(this).removeClass("future");
+                $(this).removeClass("past");
+                $(this).addClass("present");
             }
 
             else {
-                $(this).removeClass(".past");
-                $(this).removeClass(".present");
-                $(this).addClass(".future");
+                $(this).removeClass("past");
+                $(this).removeClass("present");
+                $(this).addClass("future");
             }
 
         })
@@ -46,3 +46,6 @@ $(document).ready(function () {
 //Current day and year display at top of page.
 var todayDate = moment().format('ddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
+
+// Retrieves local storage
+document.getElementById("hour8").innerHTML = localStorage.getItem("time, text");
