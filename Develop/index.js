@@ -5,6 +5,8 @@ $(document).ready(function () {
 
         // Saves user input in local storage.
         localStorage.setItem(time, text);
+        console.log(time);
+        console.log(text);
     })
 
     function timeTracker() {
@@ -48,4 +50,13 @@ var todayDate = moment().format('ddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
 
 // Retrieves local storage
-document.getElementById("hour8").innerHTML = localStorage.getItem("time, text");
+// document.getElementById("hour8").innerHTML = localStorage.getItem("time text");
+// document.getElementById("hour9").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour10").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour11").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour12").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour1").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour2").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour3").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour4").innerHTML = localStorage.getItem("time", "text");
+// document.getElementById("hour5").innerHTML = localStorage.getItem("time", "text");
