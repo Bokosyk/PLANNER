@@ -1,31 +1,32 @@
 $(document).ready(function () {
     $(".saveBtn").on("click", function() {
-        var text = $(this).siblings("description").val();
+        console.log("--------------------------------------------------------> Saving...");
+        var text = $(this).siblings(".description").val();
         var time = $(this).parent().attr("id");
 
         // Saves user input in local storage.
-        localStorage.setItem(time, text);
+        saveData(time, text);
         console.log(time);
         console.log(text);
     })
 
     function timeTracker() {
         // Gets current number of hours.
-        var timeNow = moment().hour();
+        var currentTime = moment().hour();
 
-        //loop over time blocks
+        // loop over time blocks        
         $(".time-block").each(function () {
-            var blockTime = parseInt($(this).attr("id").split("hour")[1]);
+            var timeString = $(this).attr("id").split("hour")[1];
+            var blockTime = parseInt(timeString);
 
-            //Checks time and marks past/future/present.
-
-            if (blockTime < timeNow) {
+            // Checks time and marks past/future/present.
+            if (blockTime < currentTime) {
                 $(this).removeClass("present");
                 $(this).removeClass("future");
                 $(this).addClass("past");
             }
 
-            else if (blockTime == timeNow) {
+            else if (blockTime == currentTime) {
                 $(this).removeClass("future");
                 $(this).removeClass("past");
                 $(this).addClass("present");
@@ -36,8 +37,23 @@ $(document).ready(function () {
                 $(this).removeClass("present");
                 $(this).addClass("future");
             }
-
+            
+            // render existing events text (if any)
+            var eventText = retrieveData('hour' + timeString);            
+            if(eventText){
+                 $(this).children(".description").text(eventText); 
+            }
+            
         })
+    }
+
+    function saveData(key, value){
+        localStorage.setItem(key, value);
+        return true;
+    }
+
+    function retrieveData(key){
+        return localStorage.getItem(key);
     }
 
     //Runs function
@@ -48,15 +64,3 @@ $(document).ready(function () {
 //Current day and year display at top of page.
 var todayDate = moment().format('ddd, MMM Do YYYY');
 $("#currentDay").html(todayDate);
-
-// Retrieves local storage
-// document.getElementById("hour8").innerHTML = localStorage.getItem("time text");
-// document.getElementById("hour9").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour10").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour11").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour12").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour1").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour2").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour3").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour4").innerHTML = localStorage.getItem("time", "text");
-// document.getElementById("hour5").innerHTML = localStorage.getItem("time", "text");
