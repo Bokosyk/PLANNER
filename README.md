@@ -14,9 +14,7 @@
 
 ## Description
 
-This Web Application stores your time sensitive to do list to your local storage. This was accomplished using HTML, CSS, Javascript, and Moment.js API. See [How To Use](#how-to-use) section for an explanation of how it works.
-
-Overall an extremely challenging project, but I came away with a better understanding of traversing the D.O.M., incorporating APIs into a website, local storage, and finally, adding elements, classes, data attributes with JS.
+This Web Application stores your time sensitive to do list to your local storage. This was accomplished using HTML, CSS, Javascript, and Moment.js API. See [How To Use](#how-to-use) section for an explanation of how it works
 
 #### Technologies
 
