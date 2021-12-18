@@ -55,6 +55,4 @@ Link to GitHub repository: https://github.com/Bokosyk/PLANNER
 
 ## Author Info
 
-- E-mail: lparrado321@gmail.com
-
 [Back To The Top](#read-me-template)
